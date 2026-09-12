@@ -2,33 +2,32 @@
 
 > An AI-powered placement preparation and productivity platform for college students.
 
-CareerTrack combines placement preparation, productivity tools, gamification, and AI career guidance into a single polished SaaS-grade platform.
+![Frontend](https://img.shields.io/badge/Frontend-React_%2B_Vite-61DAFB?logo=react&logoColor=white)
+![Backend](https://img.shields.io/badge/Backend-Express-1f6feb?logo=express&logoColor=white)
+![Database](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb&logoColor=white)
+![Auth](https://img.shields.io/badge/Auth-JWT-7c5cff)
+![AI](https://img.shields.io/badge/AI-OpenAI-412991?logo=openai&logoColor=white)
+
+CareerTrack combines placement preparation, productivity tools, gamification, and AI career guidance into a single polished platform.
 
 ---
 
 ## Screenshots
 
-### Landing Page
-![Landing Page Hero](screenshots/landing-page-hero.png)
-![Landing Page Features](screenshots/landing-page-features.png)
-![Landing Page Workflow](screenshots/landing-page-workflow.png)
-
-### Authentication
-![Login Page](screenshots/login-page.png)
-![Register Page](screenshots/register-page.png)
-
 ### Dashboard
-![Dashboard Overview](screenshots/dashboard-overview.png)
+![Dashboard](screenshots/Screenshot%202026-09-12%20172505.png)
 
-### DSA Tracker
-![Problem Tracker](screenshots/problem-tracker.png)
+### Landing Page
+![Landing Page](screenshots/Screenshot%202026-09-12%20172551.png)
 
-### Topics
-![Topics Overview](screenshots/topics-overview.png)
-![Topic Details](screenshots/topic-details.png)
+### AI Career Assistant
+![AI Career Assistant](screenshots/Screenshot%202026-09-12%20172633.png)
 
-### Resume
-![Resume Manager](screenshots/resume-manager.png)
+### Cognitive Games
+![Games](screenshots/Screenshot%202026-09-12%20172648.png)
+
+### Study & Pomodoro
+![Study & Pomodoro](screenshots/Screenshot%202026-09-12%20172703.png)
 
 ---
 
@@ -51,7 +50,7 @@ CareerTrack combines placement preparation, productivity tools, gamification, an
 
 ### Gamification
 - **XP System** — Server-side XP awards for every meaningful activity
-- **Levels** — 20-level progression based on XP (no fake inflation)
+- **Levels** — 20-level progression based on XP
 - **Coins** — Earned via rewards, spendable for streak freezes
 - **Streaks** — Real streak tracking across all activities
 - **Streak Freeze** — Protect your streak with coins (100 coins/freeze)
@@ -68,7 +67,6 @@ CareerTrack combines placement preparation, productivity tools, gamification, an
 
 ### Career
 - **Job Application Tracker** — Track applications from saved → selected
-- **AI Career Assistant** — Role-specific guidance, weakness detection, daily plans
 
 ---
 
@@ -80,7 +78,6 @@ CareerTrack combines placement preparation, productivity tools, gamification, an
 | Backend | Node.js, Express 5, MongoDB, Mongoose |
 | Auth | JWT (7-day tokens), bcrypt |
 | AI | OpenAI GPT-4o-mini (fallback: smart rule-based responses) |
-| Deployment | Frontend: Vercel · Backend: Railway / Render |
 
 ---
 
@@ -100,7 +97,6 @@ backend/src/
   services/     ← Business logic (xp, streak, challenges, achievements, ai)
   routes/       ← Express routers
   middleware/   ← auth, validation, error handling
-  utils/        ← Constants, token generation
 ```
 
 ---
@@ -121,7 +117,6 @@ backend/src/
 | Study session | +1 per 10 min (max 30) |
 | Goal complete | +50 |
 | Daily check-in | +5 |
-| Achievement unlock | varies |
 | 7-day streak bonus | +20 |
 
 XP is awarded **server-side only**. Frontend cannot modify XP.
@@ -145,8 +140,8 @@ Study (15%):       weekly_hours × 10 × 0.15
 ### Backend (`backend/.env`)
 ```
 PORT=5000
-MONGO_URI=mongodb+srv://...
-JWT_SECRET=your_secret_here
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/
+JWT_SECRET=your_jwt_secret_here
 JWT_EXPIRES_IN=7d
 OPENAI_API_KEY=sk-...   # Optional — fallback responses work without it
 ```
@@ -160,15 +155,10 @@ VITE_API_URL=http://localhost:5000/api
 
 ## Setup & Running
 
-### Prerequisites
-- Node.js 18+
-- MongoDB Atlas account (or local MongoDB)
-
 ### Backend
 ```bash
 cd backend
 npm install
-# Set up .env file
 npm run dev
 ```
 
@@ -179,13 +169,11 @@ npm install
 npm run dev
 ```
 
-Frontend: http://localhost:5173  
+Frontend: http://localhost:5173
 Backend: http://localhost:5000
 
-### MongoDB Atlas — Important
-Add your current IP to the Atlas IP Whitelist:
-1. Go to Atlas → Network Access → Add IP Address
-2. Add `0.0.0.0/0` for development (restrict in production)
+### MongoDB Atlas
+Add your IP to Atlas Network Access → IP Access List → Allow Access from Anywhere (`0.0.0.0/0`) for development.
 
 ---
 
@@ -193,27 +181,11 @@ Add your current IP to the Atlas IP Whitelist:
 
 On first registration, each new user automatically gets:
 - 10 DSA topics pre-created
-- 150 DSA problems pre-seeded across those topics
+- 150 DSA problems pre-seeded
 - 20 achievements seeded at server startup
 
 ---
 
-## Deployment
+## Author
 
-### Frontend (Vercel)
-```bash
-# Set environment variable:
-VITE_API_URL=https://your-backend.railway.app/api
-```
-
-### Backend (Railway / Render)
-Set all variables from the `.env` file in the platform dashboard.
-
----
-
-## Troubleshooting
-
-**MongoDB connection error**: Add your IP to Atlas whitelist.  
-**Build warning about chunk size**: Expected for a full-featured SPA. Use code splitting if needed.  
-**AI responses show "fallback"**: Set `OPENAI_API_KEY` in backend `.env`. Fallback responses still use real user data.  
-**Streak not updating**: Activities must be server-confirmed (not just frontend). Check network requests.
+**Devishika Bhardwaj**
