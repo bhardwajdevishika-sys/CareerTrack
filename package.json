@@ -1,0 +1,12 @@
+{
+  "name": "CareerTrack",
+  "version": "1.0.0",
+  "description": "MERN stack application to prepare for technical interviews.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
