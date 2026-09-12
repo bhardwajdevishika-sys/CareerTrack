@@ -6,6 +6,32 @@ CareerTrack combines placement preparation, productivity tools, gamification, an
 
 ---
 
+## Screenshots
+
+### Landing Page
+![Landing Page Hero](screenshots/landing-page-hero.png)
+![Landing Page Features](screenshots/landing-page-features.png)
+![Landing Page Workflow](screenshots/landing-page-workflow.png)
+
+### Authentication
+![Login Page](screenshots/login-page.png)
+![Register Page](screenshots/register-page.png)
+
+### Dashboard
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+### DSA Tracker
+![Problem Tracker](screenshots/problem-tracker.png)
+
+### Topics
+![Topics Overview](screenshots/topics-overview.png)
+![Topic Details](screenshots/topic-details.png)
+
+### Resume
+![Resume Manager](screenshots/resume-manager.png)
+
+---
+
 ## Features
 
 ### Preparation
